@@ -32,7 +32,7 @@ try:
     ser = esp32_connect(urzadzenie)
     while True:
         pomiar = ser.readline().decode('utf-8', errors='ignore').strip()
-        if not pomiar:
+        if pomiar == "error":
             status = status+1
             print(f"Error {status} / 15. DHT11 is not responding, retrying....")
             if status == 15:
